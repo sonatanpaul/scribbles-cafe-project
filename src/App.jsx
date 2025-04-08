@@ -10,9 +10,15 @@ function App() {
     setBookMark([...bookMark, blog]);
   };
 
-  const handleCount = (time) => {
+  const handleCount = (time, id) => {
     const timeCount = count + time;
     setCount(timeCount);
+    handleDelete(id);
+  };
+
+  const handleDelete = (id) => {
+    const deleteData = bookMark.filter((data) => data.id !== id);
+    setBookMark(deleteData);
   };
 
   return (

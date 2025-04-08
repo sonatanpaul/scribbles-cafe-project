@@ -18,7 +18,7 @@ export default function Blog({ blog, handleMark, handleCount }) {
           </div>
           <div className="card-actions justify-end">
             <button
-              onClick={() => handleCount(blog.reading_time)}
+              onClick={() => handleCount(blog.reading_time, blog.id)}
               className="btn btn-primary"
             >
               Mark as Read
