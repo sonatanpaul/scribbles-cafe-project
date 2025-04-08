@@ -1,4 +1,6 @@
-export default function Blog({ blog }) {
+import { IoBookmarks } from "react-icons/io5";
+
+export default function Blog({ blog, handleMark, handleCount }) {
   return (
     <>
       <div className="card bg-base-100 w-96 shadow-sm">
@@ -7,12 +9,20 @@ export default function Blog({ blog }) {
         </figure>
         <div className="card-body">
           <h2 className="card-title">{blog.title}</h2>
-          <p>
-            A card component has a figure, a body part, and inside body there
-            are title and actions parts
-          </p>
+          <div className="flex gap-4 justify-between items-center">
+            <img className="w-16" src={blog.author_img} alt="" />
+            <h3 className="text-3xl">{blog.author}</h3>
+            <button onClick={() => handleMark(blog)}>
+              <IoBookmarks size={28} />
+            </button>
+          </div>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">Mark as Read</button>
+            <button
+              onClick={() => handleCount(blog.reading_time)}
+              className="btn btn-primary"
+            >
+              Mark as Read
+            </button>
           </div>
         </div>
       </div>
